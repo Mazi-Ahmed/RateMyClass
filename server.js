@@ -28,13 +28,31 @@ app.get("/classes/:id/reviews/new", (req,res)=>{
     res.render("new.ejs",  {classId})
 })
 
-    //
+    // CREATE
+app.post("/classes/:id/reviews", (req, res) => {
+    const classId = req.params.id;
+    const newReview = {
+        quality: req.body.quality,
+        difficulty: req.body.difficulty,
+        review: req.body.review
+    }
+    if (!classes[classId]) {
+        return res.status(404).send('Class not found');
+    }
+    if (!classes[classId].reviews) {
+        classes[classId].reviews = []
+    }
+    classes[classId].reviews.push(newReview);
+    res.redirect(`/classes/${classId}`)
+});
 
     // SHOW
 app.get('/classes/:id', (req,res)=> {
+    const classId = req.params.id;
+    const classData = classes[classId]
     res.render("show.ejs", {
-        classData: classes[req.params.id]
-    })
+        classData, classId
+})
 })
 
 // PORT
