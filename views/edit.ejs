@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Edit Rating</title>
+</head>
+
+<body>
+    <h3>Edit Rating</h3>
+    <form action="/classes/<%= classId %>/reviews/<%= reviewId %>" method="POST">
+        <div>
+            <label for="quality">Quality:</label>
+            <input type="number" id="quality" name="quality" value="<%= review.quality %>" required>
+        </div>
+        <div>
+            <label for="difficulty">Difficulty:</label>
+            <input type="number" id="difficulty" name="difficulty" value="<%= review.difficulty %>" required>
+        </div>
+        <div>
+            <label for="review">Review:</label>
+            <textarea id="review" name="review" required><%= review.review %></textarea>
+        </div>
+        <button type="submit">Update Review</button>
+    </form>
+    <a href="/classes/<%= classId %>">Back to Class</a>
+</body>
+
+</html>

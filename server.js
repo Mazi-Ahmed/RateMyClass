@@ -28,6 +28,30 @@ app.get("/classes/:id/reviews/new", (req,res)=>{
     res.render("new.ejs",  {classId})
 })
 
+    // DELETE   
+app.post('/classes/:classId/reviews/:reviewId/delete', (req, res) => {
+    const classId = req.params.classId
+    const reviewId = req.params.reviewId
+    const classData = classes[classId]
+
+    classData.reviews.splice(reviewId, 1)
+    res.redirect(`/classes/${classId}`)
+})
+
+    // UPDATE
+app.post('/classes/:classId/reviews/:reviewId', (req,res)=> {
+    const classId = req.params.classId
+    const reviewId = req.params.reviewId
+    const classData = classes[classId]
+
+    classData.reviews[reviewId] = {
+        quality: req.body.quality,
+        difficulty: req.body.difficulty,
+        review: req.body.review
+    }
+    res.redirect(`/classes/${classId}`)
+})
+
     // CREATE
 app.post("/classes/:id/reviews", (req, res) => {
     const classId = req.params.id;
@@ -45,6 +69,19 @@ app.post("/classes/:id/reviews", (req, res) => {
     classes[classId].reviews.push(newReview);
     res.redirect(`/classes/${classId}`)
 });
+
+    // EDIT
+app.get('/classes/:classId/reviews/:reviewId/edit', (req, res) => {
+    const classId = req.params.classId;
+    const reviewId = req.params.reviewId;
+    const classData = classes[classId];
+    
+    res.render("edit.ejs", { 
+        classId, 
+        reviewId, 
+        review: classData.reviews[reviewId] 
+    })
+})
 
     // SHOW
 app.get('/classes/:id', (req,res)=> {

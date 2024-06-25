@@ -32,18 +32,22 @@
     </div>
     <% if (classData.reviews && classData.reviews.length > 0) { %>
         <p>
-            <% classData.reviews.forEach(review => { %>
+            <% classData.reviews.forEach((review, index) => { %>
                     Quality: <%= review.quality %> </br>
                     Difficulty: <%= review.difficulty %> </br>
                     Review: "<%= review.review %>" </br>
+                <a href="/classes/<%= classId %>/reviews/<%= index %>/edit">Edit</a>
+                <form action="/classes/<%= classId %>/reviews/<%= index %>/delete" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
             <% }); %>
         </p>
                         <!-- ADD LINK TO EDIT -->
-                <a href="/classes/<%= classId %>/reviews/edit">Edit</a>
+                <!-- <a href="/classes/<%= classId %>/reviews/edit">Edit</a> -->
                        <!-- ADD DELETE -->
-                <form action="/classes/<%= classId %>/reviews/?_method=DELETE" method="POST">
+                <!-- <form action="/classes/<%= classId %>/reviews/?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE">
-                </form>
+                </form> -->
     <% } %></br>
 
     <a href="/classes">Back To Homepage</a>
