@@ -22,6 +22,14 @@ app.get("/classes/", (req,res)=>{
     })
 })
 
+    // NEW 
+app.get("/classes/:id/reviews/new", (req,res)=>{
+    const classId = req.params.id
+    res.render("new.ejs",  {classId})
+})
+
+    //
+
     // SHOW
 app.get('/classes/:id', (req,res)=> {
     res.render("show.ejs", {
