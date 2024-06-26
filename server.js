@@ -6,16 +6,16 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const { Types } = require('mongoose')
 const classController = require("./controllers/classControl")
+require('dotenv').config()
 // const Class = require('./models/class');
 
 // MongoDB Connection
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/classes")
+        await mongoose.connect(process.env.MONGOURI)
         console.log('Connected to MongoDB');
     } catch (err) {
         console.error('Failed to connect to MongoDB', err);
-        process.exit(1);
     }
 };
 

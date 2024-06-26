@@ -2,9 +2,10 @@ const mongoose = require('mongoose')
 const Class = require('./models/class')
 // const classes = require('./models/classes')
 const ObjectId = mongoose.Types.ObjectId
+require('dotenv').config()
 
-const mongoURI = "mongodb://127.0.0.1:27017/classes";
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoURI = process.env.MONGOURI
+
 
 
 const classes = [
@@ -96,6 +97,8 @@ const classes = [
 
 const seedDB = async () => {
     try {
+        console.log(process.env.MONGOURI)
+        await mongoose.connect(mongoURI)
         await Class.deleteMany({});
         await Class.insertMany(classes);
         console.log("Database seeded!");
