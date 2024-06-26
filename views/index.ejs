@@ -6,19 +6,36 @@
     <title>Classes Index</title>
     <link rel="stylesheet" href="/css/app.css">   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+         .class-card {
+            margin-bottom: 20px;
+        }
+        .class-image {
+            max-width: 100px; 
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <h1 class="mt-5">RateMyClass</h1>
-        <ul class="list-group mt-3">
+        <div class="row mt-3">
             <% allClasses.forEach(classItem => { %>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="/classes/<%= classItem._id %>"><%= classItem.name %></a>
-            </li>
+                <div class="col-md-4">
+                    <div class="card class-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="/classes/<%= classItem._id %>"><%= classItem.name %></a></h5>
+                            <p class="card-text"><strong>Offered by:</strong> <%= classItem.offered %></p>
+                            <p class="card-text"><strong>Quality:</strong> <%= classItem.quality %> | <strong>Difficulty:</strong> <%= classItem.difficulty %></p>
+                            <a href="<%= classItem.url %>" class="btn btn-primary">Class Link</a>
+                        </div>
+                    </div>
+                </div>
             <% }) %>
-        </ul>
     </div>
+    <a href="/" class="btn btn-secondary mt-3">Back To Homepage</a>
 </body>
 
 </html>

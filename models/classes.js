@@ -5,12 +5,11 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const mongoURI = "mongodb://127.0.0.1:27017/classes";
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Failed to connect to MongoDB', err));
 
 const classes = [
     {
         _id: new ObjectId(),
+        imageUrl: "https://www.hpcwire.com/wp-content/uploads/2023/02/shutterstock_ibm.jpg",
         name: 'IBM Full Stack Software Developer',
         quality: 4.6,
         difficulty: 2.0,
@@ -24,6 +23,7 @@ const classes = [
     },
     {
         _id: new ObjectId(),
+        imageUrl: "https://cdn.punchng.com/wp-content/uploads/2022/11/07144955/WhatsApp-Image-2022-11-07-at-13.57.23.jpeg",
         name: 'Meta Front-End Developer',
         quality: 4.7,
         difficulty: 2.0,
@@ -37,6 +37,7 @@ const classes = [
     },
     {
         _id: new ObjectId(),
+        imageUrl: "https://bsmedia.business-standard.com/_media/bs/img/article/2023-06/06/full/1686046036-9475.jpeg?im=FeatureCrop,size=(826,465)",
         name: 'Microsoft Business Analyst Professional',
         quality: 4.6,
         difficulty: 2.0,
@@ -50,6 +51,7 @@ const classes = [
     },
     {
         _id: new ObjectId(),
+        imageUrl: "https://www.pngitem.com/pimgs/m/20-207776_transparent-general-assembly-logo-hd-png-download.png",
         name: 'Software Engineering Bootcamp',
         quality: 5.0,
         difficulty: 4.0,
@@ -63,6 +65,7 @@ const classes = [
     },
     {
         _id: new ObjectId(),
+        imageUrl: "https://lh5.googleusercontent.com/proxy/-lg4oGImlFnnult2k4sk6ogvspnxqhI-t6YSXTpcTBFQepchyZLiYTiiz-rcee73SEqJQYVLIFX4BQd5qQ",
         name: 'Swimming Lessons',
         quality: 5.0,
         difficulty: 3.0,
@@ -72,6 +75,20 @@ const classes = [
             quality: 5,
             difficulty: 3,
             review: "Swim Easy is a great place for anyone to learn how to swim. Having grown up with a fear of water, I was never able to learn, yet after just a few short months of attending classes, I have been able to get over my fear and am getting better every time. Krysztof, Devon and Matteo are all awesome and make it fun. I highly recommend this swim school to anyone."
+        }]
+    }, 
+    {
+        _id: new ObjectId(),
+        imageUrl:"https://lh3.googleusercontent.com/p/AF1QipPx50_gxgMCwgOtiCcOVH2Txz-IP_v5-pKRfAAN=s680-w680-h510",
+        name: 'Sitan Gym Muay Thai',
+        quality: 4.8,
+        difficulty: 4.9,
+        offered: "Sitan Gym",
+        url: "https://sitangymny.com/",
+        reviews: [{
+            quality: 4.8,
+            difficulty: 4.9,
+            review: "It's a great place to learn Muay Thai, spar with people, and be a part of a community. I went for several years, and had a great time learning fight skills and having fun with great people."
         }]
     }
 ];

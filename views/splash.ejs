@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateMyClass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #f8f9fa; 
+            padding-top: 3rem;
+        }
+
+        .splash-container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .splash-container h1 {
+            color: #007bff; 
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .splash-container p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .splash-container form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .splash-container form input[type="text"] {
+            width: 70%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .splash-container form button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .splash-container img {
+            max-width: 200px;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="splash-container">
+        <h1>RateMyClass</h1>
+        <p>Explore and rate classes to make informed decisions.</p>
+        <form action="/search" method="GET">
+            <input type="text" name="query" class="form-control" placeholder="Find a Class...">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <a href="/classes" class="btn btn-primary mt-3">All Classes</a></br>
+        <img src="https://cdn-icons-png.freepik.com/512/5722/5722697.png" alt="Class Icon">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dYBKVp4QV" crossorigin="anonymous"></script>
+</body>
+
+</html>

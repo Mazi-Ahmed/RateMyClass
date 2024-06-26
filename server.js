@@ -28,7 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use('/classes', classController)
 
-
+// Splash Page
+app.get('/', (req, res) => {
+    res.render('splash.ejs')
+});
 
 // PORT
 app.listen(port, () => {
