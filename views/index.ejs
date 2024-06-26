@@ -9,23 +9,16 @@
 </head>
 
 <body>
-    <h1>RateMyClass</h1>
-    <ul>
-        <% for (let i=0; i < allClasses.length; i++) { %>
-            <li>
-                <a href="/classes/<%=i%>">
-                    <%=allClasses[i].name%>
-                </a>
-                <!-- ADD DELETE -->
-                <!-- <form action="/classes/<%= i %>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE">
-                </form> -->
-                <!-- ADD LINK TO EDIT -->
-                <!-- <a href="/classes/<%= i %>/edit">Edit</a> -->
+    <div class="container">
+        <h1 class="mt-5">RateMyClass</h1>
+        <ul class="list-group mt-3">
+            <% allClasses.forEach(classItem => { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/classes/<%= classItem._id %>"><%= classItem.name %></a>
             </li>
-            <% } %>
-    </ul>
-
+            <% }) %>
+        </ul>
+    </div>
 </body>
 
 </html>
